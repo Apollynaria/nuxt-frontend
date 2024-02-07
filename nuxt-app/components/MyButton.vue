@@ -62,7 +62,7 @@ const colorVariants = {
 const emit = defineEmits(['click']);
 
 const className = {
-    'pointer-events-none': props.disabled,
+    // 'pointer-events-none': props.disabled,
     'disabled:opacity-75': props.disabled,
     'w-full': props.fullWidth
 };

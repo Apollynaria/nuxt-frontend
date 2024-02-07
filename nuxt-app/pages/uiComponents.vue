@@ -52,6 +52,65 @@
             color="yellow" 
         >*slot*</my-button>
 
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <h1 class="text-2xl font-bold">
+            Модальное окно импорта
+        </h1>
+
+        <br>
+
+        <my-button 
+            @click="clickBtnModalWindowImport" 
+            :disabled="false" 
+            :appendIcon="false" 
+            title="Импорт файлов"
+            color="blue" 
+        />
+
+        <br>
+
+        <h1 class="text-2xl font-bold">
+            Модальное окно экспорта
+        </h1>
+
+        <br>
+
+        <my-button 
+            @click="clickBtnModalWindowExport" 
+            :disabled="false" 
+            :appendIcon="false" 
+            title="Экспорт файлов"
+            color="blue" 
+        />
+
+        <my-modal-window-import 
+            v-if="showModalWindowImport" 
+            @close="closeModalWindowImport" 
+            @sendFile="getImportFile"
+            title="Импорт файлов"
+            textButton="Загрузить и отправить" 
+            types=".jpg, .png">
+            <p slot="body" class="text-gray-300">*Расширение через slot*</p>
+        </my-modal-window-import>
+
+
+        <my-modal-window-export 
+            v-if="showModalWindowExport" 
+            @close="closeModalWindowExport" 
+            title="Экспорт файлов"
+            textButton="Загрузить файл" 
+            :chooseDate="true" 
+            textInputData="Введите ФИО" 
+            :select="testObj"
+            link="/logo.svg"
+            :isLoading="isLoadingModalExport" 
+            :isLoadedFile="isLoadedFile" 
+            @getFile="getFile">
+            <p slot="body" class="text-gray-300">*Расширение через slot*</p>
+        </my-modal-window-export>
+
+
     </div>
 </template>
 
@@ -60,7 +119,6 @@
 useSeoMeta({
     title: 'Библиотека UI компонентов',
 })
-
 const isLoading = ref(false);
 const title = ref("Проверка загрузки");
 const colorBtn = ref("red");
@@ -84,9 +142,28 @@ const options = ref([
     "Самара"
 ]);
 const choosenOptions = ref([]);
+const file = ref('');
 
 const clickBtn = () => {
     console.log("btnClicked");
+};
+
+const clickBtnModalWindowImport = () => {
+    showModalWindowImport.value = !showModalWindowImport.value;
+};
+
+const closeModalWindowImport = () => {
+    showModalWindowImport.value = false;
+};
+
+const clickBtnModalWindowExport = () => {
+    showModalWindowExport.value = !showModalWindowExport.value;
+};
+
+const closeModalWindowExport = () => {
+    showModalWindowExport.value = false;
+    isLoadingModalExport.value = false;
+    isLoadedFile.value = false;
 };
 
 const clickBtnLoading = async () => {
@@ -105,6 +182,10 @@ const getFile = async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     isLoadingModalExport.value = false;
     isLoadedFile.value = true;
+};
+
+const getImportFile = (importedFile) => {
+    console.log(importedFile);
 };
 
 </script>

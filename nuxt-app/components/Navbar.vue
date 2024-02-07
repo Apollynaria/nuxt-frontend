@@ -5,6 +5,7 @@
       <nuxt-link to="/test"><img src="../logo.svg" alt="logo" class='w-[26px]' /></nuxt-link>
       <nuxt-link to="/test">Тестовая страница</nuxt-link>
       <nuxt-link to="/api">Работа с API</nuxt-link>
+      <nuxt-link to="/uiComponents">Библиотека компонентов</nuxt-link>
     </div>
 
   </div>

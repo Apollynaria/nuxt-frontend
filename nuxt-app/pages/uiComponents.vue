@@ -55,6 +55,29 @@
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
         <h1 class="text-2xl font-bold">
+            Select с мультивыбором
+        </h1>
+
+        <br>
+
+        <my-select 
+            class="w-50"
+            title="Выбрать значения" 
+            :options="options.slice().sort()"
+            @update:choosenOptions="updateChoosenOptions"
+        />
+
+        <div class="mb-2">Выбранные значения в родителе:</div>
+        <div v-for="option in choosenOptions" :key="option"
+                class="">
+                {{ option }}
+            </div>
+
+        <br>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <h1 class="text-2xl font-bold">
             Модальное окно импорта
         </h1>
 
@@ -141,7 +164,7 @@ const options = ref([
     "Омск",
     "Самара"
 ]);
-const choosenOptions = ref([]);
+const choosenOptions = reactive([]);
 const file = ref('');
 
 const clickBtn = () => {
@@ -187,6 +210,11 @@ const getFile = async () => {
 const getImportFile = (importedFile) => {
     console.log(importedFile);
 };
+
+const updateChoosenOptions = (newChoosenOptions) => {
+    choosenOptions.splice(0, choosenOptions.length, ...newChoosenOptions);
+};
+
 
 </script>
 

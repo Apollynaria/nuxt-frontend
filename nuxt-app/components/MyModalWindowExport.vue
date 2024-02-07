@@ -145,7 +145,7 @@ const className = {
     'select-none': props.isLoading
 };
 
-const emit = defineEmits(['close', 'sendFile']);
+const emit = defineEmits(['close', 'getFile']);
 
 const close = () => {
     emit('close');

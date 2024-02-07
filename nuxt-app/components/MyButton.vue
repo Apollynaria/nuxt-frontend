@@ -1,10 +1,8 @@
 <template>
     <div>
         <button @click="click" type="button" 
-            :class="['px-8', 'py-3', 'rounded', 'btn', 'font-bold', 'focus:outline-none', 'text-white', 
-                    colorVariants[color], 
-                    className]" 
-            :disabled="disabled">
+            :class="['px-8', 'py-3', 'rounded', 'btn', 'font-bold', 'focus:outline-none', '', className, colorVariants[color]
+                    ]">
             {{ title }}
             <slot></slot>
             <svg aria-hidden="true" v-if="appendIcon" role="status" class="inline w-4 h-4 me-3 text-white animate-spin"
@@ -51,21 +49,24 @@ const props = defineProps({
 });
 
 const colorVariants = {
-    blue: 'bg-blue-600 hover:bg-blue-500',
-    red: 'bg-red-600 hover:bg-red-500',
-    lime: 'bg-lime-600 hover:bg-lime-500',
-    yellow: 'bg-yellow-300 hover:bg-yellow-400 text-black',
-    green: 'bg-green-600 hover:bg-green-500',
-    gray: 'bg-gray-600 hover:bg-gray-500'
+    blue: 'bg-blue-600 hover:bg-blue-500 text-white',
+    red: 'bg-red-600 hover:bg-red-500 text-white',
+    lime: 'bg-lime-600 hover:bg-lime-500 text-white',
+    yellow: 'bg-yellow-400 hover:bg-yellow-300 text-black',
+    green: 'bg-green-600 hover:bg-green-500 text-white',
+    gray: 'bg-gray-600 hover:bg-gray-500 text-white'
 };
 
 const emit = defineEmits(['click']);
 
-const className = {
-    // 'pointer-events-none': props.disabled,
-    'disabled:opacity-75': props.disabled,
-    'w-full': props.fullWidth
-};
+const className = computed(() => {
+    return {
+        disabled: props.disabled,
+        'pointer-events-none': props.disabled,
+        'opacity-75': props.disabled,
+        'w-full': props.fullWidth
+    };
+});
 
 const click = () => {
     emit('click');

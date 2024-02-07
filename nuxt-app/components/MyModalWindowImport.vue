@@ -81,7 +81,7 @@ const handleFileUpload = () => {
 };
 
 const sendFile = () => {
-    emit('sendFile', file.value);
+    emit('sendFile', file.value.files[0]);
 };
 </script>
 

@@ -4,6 +4,7 @@
     <div class="topnav">
       <nuxt-link to="/test"><img src="../logo.svg" alt="logo" class='w-[26px]' /></nuxt-link>
       <nuxt-link to="/test">Тестовая страница</nuxt-link>
+      <nuxt-link to="/api">Работа с API</nuxt-link>
     </div>
 
   </div>

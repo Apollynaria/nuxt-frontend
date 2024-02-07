@@ -8,6 +8,9 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
+  modules: [
+    '@nuxtjs/axios'
+  ],
   theme: {
     extend: {},
   },

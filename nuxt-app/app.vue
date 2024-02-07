@@ -1,19 +1,11 @@
 <template>
   <div>
-      <Navbar />
-      <NuxtPage />
+      <NuxtLayout />
   </div>
 </template>
 
 
-<script>
-import Navbar from "../components/Navbar";
-
-export default {
-  components: {
-      Navbar
-  }
-};
+<script setup lang="ts">
 </script>
 
 <style></style>

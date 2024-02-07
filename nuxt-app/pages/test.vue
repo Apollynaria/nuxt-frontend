@@ -84,15 +84,12 @@
       </div>
   </template>
     
-  <script>
-  export default {
-    name: 'Test',
-    head() {
-      return {
-        title: "Тестовая страница"
-      }
-    }
-  }
+  <script setup lang="ts">
+
+  useSeoMeta({
+    title: 'Тестовая страница',
+  })
+  
   </script>
     
   <style></style>

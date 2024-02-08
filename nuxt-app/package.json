@@ -12,6 +12,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@vuepic/vue-datepicker": "^8.0.0",
+    "ag-grid-community": "^31.0.3",
+    "ag-grid-vue3": "^31.0.3",
     "axios": "^1.6.7",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",

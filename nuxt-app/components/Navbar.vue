@@ -6,6 +6,7 @@
       <nuxt-link to="/test">Тестовая страница</nuxt-link>
       <nuxt-link to="/api">Работа с API</nuxt-link>
       <nuxt-link to="/uiComponents">Библиотека компонентов</nuxt-link>
+      <nuxt-link to="/agGrid">Библиотека ag-grid</nuxt-link>
     </div>
 
   </div>

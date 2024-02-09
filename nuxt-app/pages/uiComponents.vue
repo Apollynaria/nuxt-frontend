@@ -114,7 +114,7 @@
             title="Импорт файлов"
             textButton="Загрузить и отправить" 
             types=".jpg, .png">
-            <p slot="body" class="text-gray-300">*Расширение через slot*</p>
+            <template #body class="text-gray-300">*Расширение через slot*</template>
         </my-modal-window-import>
 
 
@@ -130,7 +130,7 @@
             :isLoading="isLoadingModalExport" 
             :isLoadedFile="isLoadedFile" 
             @getFile="getFile">
-            <p slot="body" class="text-gray-300">*Расширение через slot*</p>
+            <template #body class="text-gray-300">*Расширение через slot*</template>
         </my-modal-window-export>
 
 

@@ -7,6 +7,7 @@
       <nuxt-link to="/api">Работа с API</nuxt-link>
       <nuxt-link to="/uiComponents">Библиотека компонентов</nuxt-link>
       <nuxt-link to="/agGrid">Библиотека ag-grid</nuxt-link>
+      <nuxt-link to="/agGridLoadPage">ag-grid с прелоадером</nuxt-link>
     </div>
 
   </div>

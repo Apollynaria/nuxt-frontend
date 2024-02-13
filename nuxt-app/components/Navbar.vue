@@ -8,6 +8,7 @@
       <nuxt-link to="/uiComponents">Библиотека компонентов</nuxt-link>
       <nuxt-link to="/agGrid">Библиотека ag-grid</nuxt-link>
       <nuxt-link to="/agGridLoadPage/table/size=25/page=1">ag-grid с прелоадером, пагинация</nuxt-link>
+      <nuxt-link to="/importExcel">Импорт данных Excel</nuxt-link>
     </div>
 
   </div>

@@ -33,6 +33,8 @@
                 :pagination="true"
                 :copyHeadersToClipboard="true"
                 @grid-ready="onGridReady"
+                @pagination-changed="onPaginationChanged"
+                :paginationPageSize="paginationPageSize"
             >
             </ag-grid-vue>
 
@@ -61,6 +63,14 @@ const props = defineProps({
     api_adr: {
         type: String,
         default: ''
+    },
+    page: {
+        type: Number,
+        default: 1
+    },
+    paginationPageSize: {
+        type: Number,
+        default: 25
     }
 });
     
@@ -69,23 +79,31 @@ const isStartState = ref(true);
 const rowData = ref();
 const gridApi = ref();
 
-const emit = defineEmits(['onGridReady']);
+const emit = defineEmits(['onGridReady', 'onPaginationChanged']);
 
 const onGridReady = (params) => {
+    params.api.paginationGoToPage(props.page - 1);
     gridApi.value = params.api;
     emit('onGridReady', gridApi);
 };
 
 const onUpdateTable = async () => {
     isLoading.value = true;
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const response = await axios.get(props.api_adr);
     rowData.value = response.data;
-    isLoading.value = false;
+    isLoading.value = false;  
 };  
 
 onUpdateTable();
 isStartState.value = false;
+
+
+const onPaginationChanged = () => {    
+    if (gridApi.value && !isNaN(gridApi.value.paginationGetCurrentPage()) ) {
+        emit('onPaginationChanged', gridApi.value.paginationGetCurrentPage());
+    }
+};
 
 </script>
 <style lang="scss" scoped>

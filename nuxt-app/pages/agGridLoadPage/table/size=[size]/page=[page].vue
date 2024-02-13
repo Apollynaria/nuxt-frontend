@@ -6,6 +6,9 @@
             :defaultColDef="defaultColDef"
             api_adr="https://www.ag-grid.com/example-assets/space-mission-data.json"
             @onGridReady="getGridApi"
+            :page="Number(page)"
+            :paginationPageSize="Number(size)"
+            @onPaginationChanged="onPaginationChanged"
         >
         </ag-grid-with-preloader>
         
@@ -13,6 +16,8 @@
 </template>
 
 <script lang="ts" setup>
+
+const { size, page } = useRoute().params;
 
 useSeoMeta({
     title: 'Тестовая таблица ag-grid',
@@ -48,6 +53,13 @@ const gridApi = ref();
 const getGridApi = (gridFromChild) => {
     gridApi.value = gridFromChild
 };
+
+const router = useRouter()
+
+const onPaginationChanged = (page) => {
+    router.push({ path: `/agGridLoadPage/table/size=${size}/page=${page+1}` });
+};
+
 
    
 </script>

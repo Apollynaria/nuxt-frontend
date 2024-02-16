@@ -90,6 +90,8 @@
     title: 'Тестовая страница',
   })
   
+
   </script>
     
-  <style></style>
+  <style scoped>
+  </style>

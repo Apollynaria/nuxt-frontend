@@ -10,5 +10,9 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['@vuepic/vue-datepicker']
-  }
+  },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+  modules: ['nuxt-icon']
 })

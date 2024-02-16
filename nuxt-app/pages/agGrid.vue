@@ -45,16 +45,25 @@
         </my-modal-window-export>
 
         <ag-grid-vue
-            class="ag-theme-quartz w-full h-[500px]"
+            class="ag-theme-quartz w-full h-[350px]"
             :columnDefs="colDefs2"
             :rowData="rowData2"
             :defaultColDef="defaultColDef"
             :pagination="true"
             :copyHeadersToClipboard="true"
             @grid-ready="onGridReady"
+            :enableCharts="true"
+            :enableRangeSelection="true"
         >
         </ag-grid-vue>
 
+        <div class="text-center mb-3 flex justify-center gap-3 mt-3">
+            <my-button @click="getTop10Price"
+                title="Top 10 Price"
+                color="red"
+            >
+            </my-button>
+        </div>
     </div>
     
 </template>
@@ -95,6 +104,7 @@ const colDefs2 = ref([
       editable: false, 
       minWidth: 1, 
       cellRenderer: 'agAnimateShowChangeCellRenderer',
+      sort: 'desc'
     },
     { field: "successful" },
     { field: "rocket" }
@@ -140,6 +150,27 @@ const showModalWindowExportCsv = () => {
     if (isShowModalWindowExportCsv){
         textareaText.value = gridApi.value.getDataAsCsv();
     }
+};
+
+const getTop10Price = () =>{
+
+    gridApi.value.createRangeChart({
+        cellRange: {
+          rowStartIndex: 0,
+          rowEndIndex: 9,
+          columns: ['price', 'company'],
+        },
+        chartType: 'groupedColumn',
+        chartThemeOverrides: {
+          common: {
+            title: {
+              enabled: true,
+              text: 'Top 10 Price',
+            },
+          },
+        },
+      });
+
 };
 
 </script>

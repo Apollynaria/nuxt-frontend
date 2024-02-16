@@ -26,12 +26,14 @@
 const isShowNavbar = ref(true);
 
 const urls = ref([
-  { name: '/test', text: 'Тестовая страница', icon: 'icon-park-outline:block-one' },
-  { name: '/api', text: 'Работа с API', icon: 'svg-spinners:6-dots-rotate' },
+  { name: '/test', text: 'Тест', icon: 'icon-park-outline:block-one' },
+  { name: '/api', text: 'API', icon: 'svg-spinners:6-dots-rotate' },
   { name: '/uiComponents', text: 'Библиотека компонентов', icon: 'material-symbols:book-2' },
-  { name: '/agGrid', text: 'Библиотека ag-grid', icon: 'material-symbols:backup-table' },
+  { name: '/agGrid', text: 'ag-grid', icon: 'material-symbols:backup-table' },
   { name: '/agGridLoadPage/table/size=25/page=1', text: 'ag-grid с прелоадером, пагинация', icon: 'iconoir:multiple-pages-empty' },
   { name: '/importExcel', text: 'Импорт данных Excel', icon: 'mdi:import' },
+  { name: '/chart', text: 'ag-grid графики', icon: 'material-symbols:add-chart-outline-rounded'},
+  { name: '/pivotAndCrossFire', text: 'pivotApi & CrossFireApi', icon: 'material-symbols:add-chart-outline-rounded'},
 ])
 </script>
   

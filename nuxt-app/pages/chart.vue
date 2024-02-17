@@ -18,6 +18,11 @@
 </template>
 
 <script lang="ts" setup>
+
+useSeoMeta({
+    title: 'ag-grid графики',
+});
+
 import { AgGridVue } from 'ag-grid-vue3';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";

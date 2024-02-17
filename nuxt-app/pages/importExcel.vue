@@ -16,6 +16,11 @@
 </template>
 
 <script setup lang="ts">
+
+useSeoMeta({
+    title: 'Импорт данных Excel',
+});
+
 import { ref } from 'vue';
 import { AgGridVue } from 'ag-grid-vue3';
 

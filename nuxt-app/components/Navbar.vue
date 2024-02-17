@@ -34,6 +34,7 @@ const urls = ref([
   { name: '/importExcel', text: 'Импорт данных Excel', icon: 'mdi:import' },
   { name: '/chart', text: 'ag-grid графики', icon: 'material-symbols:add-chart-outline-rounded'},
   { name: '/pivotAndCrossFire', text: 'pivotApi & CrossFireApi', icon: 'material-symbols:add-chart-outline-rounded'},
+  { name: '/chartjs', text: 'chart js', icon: 'material-symbols:add-chart-outline-rounded'},
 ])
 </script>
   

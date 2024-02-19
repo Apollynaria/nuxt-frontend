@@ -28,13 +28,14 @@ const isShowNavbar = ref(true);
 const urls = ref([
   { name: '/test', text: 'Тест', icon: 'icon-park-outline:block-one' },
   { name: '/api', text: 'API', icon: 'svg-spinners:6-dots-rotate' },
-  { name: '/uiComponents', text: 'Библиотека компонентов', icon: 'material-symbols:book-2' },
+  { name: '/uiComponents', text: 'ui-components', icon: 'material-symbols:book-2' },
   { name: '/agGrid', text: 'ag-grid', icon: 'material-symbols:backup-table' },
-  { name: '/agGridLoadPage/table/size=25/page=1', text: 'ag-grid с прелоадером, пагинация', icon: 'iconoir:multiple-pages-empty' },
-  { name: '/importExcel', text: 'Импорт данных Excel', icon: 'mdi:import' },
+  { name: '/agGridLoadPage/table/size=25/page=1', text: 'ag-grid preload, pages', icon: 'iconoir:multiple-pages-empty' },
+  { name: '/importExcel', text: 'import Excel', icon: 'mdi:import' },
   { name: '/chart', text: 'ag-grid графики', icon: 'material-symbols:add-chart-outline-rounded'},
-  { name: '/pivotAndCrossFire', text: 'pivotApi & CrossFireApi', icon: 'material-symbols:add-chart-outline-rounded'},
-  { name: '/chartjs', text: 'chart js', icon: 'material-symbols:add-chart-outline-rounded'},
+  { name: '/pivotAndCrossFire', text: 'Pivot&CrossFire Api', icon: 'material-symbols:add-chart-outline-rounded'},
+  { name: '/chartjs', text: 'chartjs', icon: 'material-symbols:add-chart-outline-rounded'},
+  { name: '/graphql', text: 'GraphQl', icon: 'material-symbols:add-chart-outline-rounded'},
 ])
 </script>
   

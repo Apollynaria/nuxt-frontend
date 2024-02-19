@@ -28,6 +28,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.11",
     "autoprefixer": "^10.4.17",
     "nuxt-icon": "^0.6.8",
     "postcss": "^8.4.34",

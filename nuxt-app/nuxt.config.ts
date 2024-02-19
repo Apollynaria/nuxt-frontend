@@ -14,5 +14,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: ['nuxt-icon']
+  modules: ['nuxt-icon', '@nuxtjs/apollo'],
+  apollo: {    
+    clients: {      
+      default: {        
+        httpEndpoint: 'https://spacex-api-2gl6xp7kua-ue.a.run.app/query'      
+      }    
+    },  
+  },
 })

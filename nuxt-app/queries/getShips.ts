@@ -4,7 +4,6 @@ const getShips = gql`
       id
       name
       type
-      active
     }
   }
 `

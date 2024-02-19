@@ -56,7 +56,7 @@ const getGridApi = (gridFromChild) => {
 
 const router = useRouter()
 
-const onPaginationChanged = (page) => {
+const onPaginationChanged = (page, size) => {
     router.push({ path: `/agGridLoadPage/table/size=${size}/page=${page+1}` });
 };
 

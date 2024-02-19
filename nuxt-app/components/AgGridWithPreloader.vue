@@ -34,7 +34,8 @@
                 :copyHeadersToClipboard="true"
                 @grid-ready="onGridReady"
                 @pagination-changed="onPaginationChanged"
-                :paginationPageSize="paginationPageSize"
+                :paginationPageSize="props.paginationPageSize"
+                :paginationPageSizeSelector="paginationPageSizeSelector"
             >
             </ag-grid-vue>
 
@@ -78,6 +79,7 @@ const isLoading = ref(false);
 const isStartState = ref(true);
 const rowData = ref();
 const gridApi = ref();
+const paginationPageSizeSelector = ref([25, 50, 100]);
 
 const emit = defineEmits(['onGridReady', 'onPaginationChanged']);
 
@@ -86,6 +88,7 @@ const onGridReady = (params) => {
     gridApi.value = params.api;
     emit('onGridReady', gridApi);
 };
+
 
 const onUpdateTable = async () => {
     isLoading.value = true;
@@ -100,8 +103,9 @@ isStartState.value = false;
 
 
 const onPaginationChanged = () => {    
+    
     if (gridApi.value && !isNaN(gridApi.value.paginationGetCurrentPage()) ) {
-        emit('onPaginationChanged', gridApi.value.paginationGetCurrentPage());
+        emit('onPaginationChanged', gridApi.value.paginationGetCurrentPage(), gridApi.value.paginationGetPageSize());
     }
 };
 

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: ['nuxt-icon', '@nuxtjs/apollo'],
+  modules: ['nuxt-icon', '@nuxtjs/apollo', '@vueuse/nuxt'],
   apollo: {    
     clients: {      
       default: {        

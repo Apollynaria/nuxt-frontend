@@ -1,16 +1,18 @@
 <template>
-    <div style="height: 100%">
-        <ag-grid-vue class="ag-theme-quartz w-full h-[340px]" :columnDefs="columnDefs" :defaultColDef="defaultColDef"
-            @grid-ready="onGridReady">
-        </ag-grid-vue>
-    </div>
-    <div class="h-[400px] flex gap-4 justify-around">
-        <Bar class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
-        <Line class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
-    </div>
-    <div class="h-[400px] flex gap-4 justify-around mt-5">
-        <Doughnut class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
-        <Pie class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
+    <div>
+        <div style="height: 100%">
+            <ag-grid-vue class="ag-theme-quartz w-full h-[340px]" :columnDefs="columnDefs" :defaultColDef="defaultColDef"
+                @grid-ready="onGridReady">
+            </ag-grid-vue>
+        </div>
+        <div class="h-[400px] flex gap-4 justify-around">
+            <Bar class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
+            <Line class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
+        </div>
+        <div class="h-[400px] flex gap-4 justify-around mt-5">
+            <Doughnut class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
+            <Pie class="h-75" v-if="loaded" :data="processedChartData" :options="options" />
+        </div>
     </div>
 </template>
                     

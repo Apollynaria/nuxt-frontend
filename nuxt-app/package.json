@@ -15,6 +15,7 @@
     "@ag-grid-enterprise/charts": "^31.0.3",
     "@nuxtjs/axios": "^5.13.6",
     "@vuepic/vue-datepicker": "^8.0.0",
+    "@vueuse/components": "^10.7.2",
     "ag-grid-community": "^31.0.3",
     "ag-grid-enterprise": "^31.0.3",
     "ag-grid-vue3": "^31.0.3",
@@ -29,6 +30,8 @@
   },
   "devDependencies": {
     "@nuxtjs/apollo": "^5.0.0-alpha.11",
+    "@vueuse/core": "^10.7.2",
+    "@vueuse/nuxt": "^10.7.2",
     "autoprefixer": "^10.4.17",
     "nuxt-icon": "^0.6.8",
     "postcss": "^8.4.34",

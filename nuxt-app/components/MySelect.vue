@@ -1,5 +1,5 @@
 <template>
-    <div class="relative min-w-[300px] select-none border border-gray-400 w-fit ">
+    <div class="relative min-w-[300px] select-none border border-gray-400 w-fit h-full" v-on-click-outside="closeSelect">
         <div @click="clicked = !clicked"
             :class="['flex', 'text-lg', 'text-gray-500', 'cursor-text', 'items-center', 'justify-between']">
             <div v-if="choosenOptions.length === 0" class="p-1">
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div v-if="clicked" class="z-20 absolute border border-gray-400 bg-white w-full">
+        <div v-if="clicked" class="z-20 absolute border border-gray-400 bg-white w-full" >
             <div v-for="option in options" :key="option" tabindex="-1" aria-hidden="true"
                 class="border border-gray-300 hover:bg-gray-300 w-full">
                 <input type="checkbox" :id="option" :value="option" class="me-2 ms-2" v-model="choosenOptions">
@@ -51,6 +51,7 @@
 
 
 <script lang="ts" setup>
+import { vOnClickOutside } from '@vueuse/components';
 
 const props = defineProps({
     title: {
@@ -82,6 +83,9 @@ watch(choosenOptions, () => {
     emit('update:choosenOptions', choosenOptions.value);
 })
 
+const closeSelect = () => {
+    clicked.value = false;
+};
 
 
 </script>

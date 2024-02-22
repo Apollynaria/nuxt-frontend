@@ -10,12 +10,18 @@
                 <Icon :name="card.icon" color="black" size="24"/>
             </li>
         </transition-group>
+        <h1 class="text-2xl font-bold underline text-center mt-3">counterStore: {{ count }}</h1>
     </div>
 </template>
   
 <script setup>
 import { ref } from 'vue';
 import gsap from 'gsap';
+
+import { useCounterStore } from '@/stores/user'
+
+const store = useCounterStore();
+const count = computed(() => store.count);
 
 definePageMeta({
     pageTransition: {

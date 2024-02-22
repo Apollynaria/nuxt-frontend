@@ -10,7 +10,20 @@
                 <Icon :name="card.icon" color="black" size="24"/>
             </li>
         </transition-group>
-        <h1 class="text-2xl font-bold underline text-center mt-3">counterStore: {{ count }}</h1>
+
+        <div class="flex gap-4 justify-center">
+            <my-button title="-1" @click="counterStore.decrement()" color="red"></my-button>
+            <h1 class="text-2xl font-bold text-center mt-3">counterStore:</h1>
+            <h1 class="text-2xl font-bold text-center mt-3 text-blue-500">{{ counterStore.getCount }}</h1>
+            <my-button title="+1" @click="counterStore.increment()" color="green"></my-button>
+        </div>
+
+        <div class="flex gap-4 justify-center">
+            <h1 class="text-2xl font-bold text-center mt-3">User uuid from userStore:</h1>
+            <h1 class="text-2xl font-bold text-center mt-3 text-blue-500">{{ userStore.getUser.login.uuid }}</h1>
+
+        </div>
+        
     </div>
 </template>
   
@@ -18,16 +31,22 @@
 import { ref } from 'vue';
 import gsap from 'gsap';
 
-import { useCounterStore } from '@/stores/user'
+import { useCounterStore } from '@/stores/counter';
+import { useUserStore } from '@/stores/user';
 
-const store = useCounterStore();
-const count = computed(() => store.count);
+const counterStore = useCounterStore();
+const userStore = useUserStore();
+const email = await useAsyncData('user', () => userStore.fetchUser())
 
 definePageMeta({
     pageTransition: {
         name: 'rotate'
     }
 })
+
+useSeoMeta({
+    title: 'HomePage',
+});
 
 const cards = ref([]);
 
